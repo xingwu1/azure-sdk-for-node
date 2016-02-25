@@ -21,7 +21,7 @@ npm install azure-arm-batch
  var credentials = new msRestAzure.ApplicationTokenCredentials('your-client-id', 'your-domain', 'your-secret');
  ```
 
-### Create the ComputeManagementClient
+### Create the BatchManagementClient
 
 ```javascript
 var batchManagementClient = require('azure-arm-batch');
