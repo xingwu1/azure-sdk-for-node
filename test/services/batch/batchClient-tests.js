@@ -13,7 +13,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-
+'use strict';
 
 var should = require('should');
 var util = require('util');
@@ -317,8 +317,7 @@ describe('Batch Service', function () {
       }
       
       var requestModelMapper = new client.models['PoolEnableAutoScaleParameter']().mapper();
-      requestModel = client.serialize(requestModelMapper, options, 'poolEnableAutoScaleParameter');
-      requestContent = JSON.stringify(requestModel);
+      requestModel = client.serialize(requestModelMapper, options, 'options');
 
       client.pool.enableAutoScale('nodesdktestpool1', options, function (err, result, request, response) {
         should.not.exist(err);
