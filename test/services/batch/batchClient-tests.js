@@ -315,6 +315,11 @@ describe('Batch Service', function () {
       if (!moment.isDuration(options.autoScaleEvaluationInterval)) {
         throw new Error('test11');
       }
+      
+      var requestModelMapper = new client.models['PoolEnableAutoScaleParameter']().mapper();
+      requestModel = client.serialize(requestModelMapper, options, 'poolEnableAutoScaleParameter');
+      requestContent = JSON.stringify(requestModel);
+
       client.pool.enableAutoScale('nodesdktestpool1', options, function (err, result, request, response) {
         should.not.exist(err);
         should.not.exist(result);
