@@ -311,13 +311,13 @@ describe('Batch Service', function () {
     });
 
     it('should enable autoscale successfully', function (done) {
-      var options = { autoScaleFormula: '$TargetDedicated=2', autoScaleEvaluationInterval: moment.duration({ minutes: 6 }) };
+      var options = { autoScaleFormula: '$TargetDedicated=2', autoScaleEvaluationInterval: moment.duration('P123DT22H14M12.011S') };
       if (!moment.isDuration(options.autoScaleEvaluationInterval)) {
         throw new Error('test11');
       }
       
       var requestModelMapper = new client.models['PoolEnableAutoScaleParameter']().mapper();
-      requestModel = client.serialize(requestModelMapper, options, 'options');
+      var requestModel = client.serialize(requestModelMapper, options, 'options');
 
       client.pool.enableAutoScale('nodesdktestpool1', options, function (err, result, request, response) {
         should.not.exist(err);
