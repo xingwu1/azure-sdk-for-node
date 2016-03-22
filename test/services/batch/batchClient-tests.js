@@ -313,7 +313,7 @@ describe('Batch Service', function () {
     it('should enable autoscale successfully', function (done) {
       var options = { autoScaleFormula: '$TargetDedicated=2', autoScaleEvaluationInterval: moment.duration({ minutes: 6 }) };
       if (!moment.isDuration(options.autoScaleEvaluationInterval)) {
-        throw new Error("test1");
+        throw new Error('test11');
       }
       client.pool.enableAutoScale('nodesdktestpool1', options, function (err, result, request, response) {
         should.not.exist(err);
